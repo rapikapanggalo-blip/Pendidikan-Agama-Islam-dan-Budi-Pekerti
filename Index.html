@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPI PAI Kelas X - Meraih Kesuksesan</title>
+<style>
+:root{--green:#12613f;--green2:#198653;--gold:#e9bd58;--ink:#17352a;--muted:#61736b;--paper:#f5f8f5;--line:#dce8df;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Arial,Helvetica,sans-serif}
+button,select,textarea,input{font:inherit}button{cursor:pointer}
+.hero{background:linear-gradient(135deg,#104a33,#218657);color:white;padding:34px 20px;text-align:center;position:relative;overflow:hidden}
+.hero:after{content:"۞";position:absolute;font-size:210px;opacity:.08;right:5%;top:-55px}
+.hero .school{letter-spacing:2px;font-size:12px;font-weight:bold;color:#e9d99e}
+.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.15;margin:12px auto;max-width:850px}
+.hero p{max-width:720px;margin:10px auto;color:#e6f4eb}
+.wrap{max-width:1100px;margin:auto;padding:20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 auto 16px}
+.pill{background:#e6f2e9;color:var(--green);border-radius:30px;padding:6px 12px;font-size:13px;font-weight:bold}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+nav button,.btn{border:1px solid var(--line);border-radius:10px;padding:10px 15px;background:white;color:var(--green);font-weight:bold}
+nav button.active,.btn.primary{background:var(--green);border-color:var(--green);color:white}
+nav button:hover,.btn:hover{filter:brightness(.96)}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:clamp(17px,3vw,28px);box-shadow:0 5px 18px #17432b0a;margin-bottom:16px}
+.screen{display:none}.screen.active{display:block}
+h2{color:var(--green);margin:0 0 12px;font-size:25px}h3{color:var(--green);margin:20px 0 8px}
+.lead{font-size:18px}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.tile{border:1px solid var(--line);border-radius:14px;padding:18px;background:linear-gradient(150deg,#fff,#f2f8f3);text-align:left}
+.tile .ico{font-size:32px}.tile h3{margin:5px 0}.tile p{margin:4px 0 12px;color:var(--muted);font-size:14px}
+.callout{background:#edf6ef;border-left:4px solid var(--green2);padding:14px 16px;border-radius:8px;margin:14px 0}
+.arabic{font-size:27px;line-height:2.1;text-align:right;direction:rtl;background:#f7faf7;padding:16px;border-radius:12px}
+.stimulus{border:1px solid var(--line);border-radius:13px;padding:17px;margin:14px 0}
+.stimulus .number{display:inline-block;background:#e7f3e9;color:var(--green);font-weight:bold;border-radius:20px;padding:3px 10px;font-size:12px}
+.question{font-weight:bold;margin:12px 0 8px}
+.options{display:grid;gap:8px}.options button{text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:11px}
+.options button.chosen{border:2px solid var(--green);background:#edf6ef}
+.feedback{padding:11px;border-radius:9px;margin-top:10px;background:#f1f5f2}
+.progress{height:9px;background:#e6eee8;border-radius:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--green2);width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+textarea,select,input[type=text]{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:white}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:25px}
+.small{font-size:13px}.hidden{display:none!important}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding:28px 15px}nav button{flex:1 1 28%}.arabic{font-size:23px}}
+@media print{nav,.topbar,.btn,button{display:none!important}.screen{display:block!important}.hero{background:#fff;color:#111}.panel{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="school">SMK NEGERI 5 KOLAKA UTARA • FASE E / KELAS X</div>
+ <h1>MERAIH KESUKSESAN</h1>
+ <p>Kompetisi dalam Kebaikan (<i>Fastabiqul Khairat</i>) dan Etos Kerja</p>
+ <div style="margin-top:16px"><span class="pill">MEDIA PEMBELAJARAN INTERAKTIF PAI & BUDI PEKERTI</span></div>
+</header>
+<main class="wrap">
+ <div class="topbar"><div><strong>Assalamu’alaikum, selamat belajar!</strong><div class="small muted">Pelajari materi, analisis situasi, lalu uji pemahamanmu.</div></div><div class="pill" id="progressLabel">Progres: 0/3 bagian</div></div>
+ <nav aria-label="Navigasi utama">
+  <button class="active" data-screen="home">Beranda</button><button data-screen="materi">Materi</button><button data-screen="simulasi">Simulasi</button><button data-screen="kuis">Kuis</button><button data-screen="profil">Profil</button>
+ </nav>
+
+ <section id="home" class="screen active">
+  <div class="panel">
+   <h2>Selamat Datang di MPI PAI Kelas X</h2>
+   <p class="lead">“Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya.”</p>
+   <p>Melalui media ini, kamu akan belajar bahwa kesuksesan bukan hanya tentang menjadi juara, tetapi juga tentang berusaha dengan sungguh-sungguh, menjaga kejujuran, beribadah, dan memberi manfaat.</p>
+   <div class="callout"><b>Tujuan pembelajaran</b><ul><li>Menjelaskan makna kompetisi dalam kebaikan dan etos kerja.</li><li>Menganalisis Q.S. Al-Maidah/5:48, Q.S. At-Taubah/9:105, dan hadis tentang bekerja.</li><li>Menerapkan sikap disiplin, jujur, amanah, kerja keras, dan tanggung jawab dalam kehidupan siswa SMK.</li></ul></div>
+   <button class="btn primary" onclick="showScreen('materi')">Mulai belajar →</button>
+  </div>
+  <div class="grid">
+   <button class="tile" onclick="showScreen('materi')"><div class="ico">📖</div><h3>Materi</h3><p>Pelajari konsep, dalil, hadis, dan penerapan.</p><b>Buka materi →</b></button>
+   <button class="tile" onclick="showScreen('simulasi')"><div class="ico">🧠</div><h3>Simulasi</h3><p>Analisis empat situasi nyata di lingkungan siswa.</p><b>Mulai simulasi →</b></button>
+   <button class="tile" onclick="showScreen('kuis')"><div class="ico">✍️</div><h3>Kuis</h3><p>Kerjakan 10 soal dan lihat nilai otomatis.</p><b>Kerjakan kuis →</b></button>
+   <button class="tile" onclick="showScreen('profil')"><div class="ico">🏫</div><h3>Profil</h3><p>Identitas media pembelajaran.</p><b>Lihat profil →</b></button>
+  </div>
+ </section>
+
+ <section id="materi" class="screen">
+  <div class="panel">
+   <h2>Materi: Meraih Kesuksesan</h2>
+   <p>Kesuksesan dalam pandangan Islam mencakup keberhasilan dunia dan akhirat. Kesuksesan diraih melalui iman, ilmu, amal saleh, akhlak mulia, serta usaha yang sungguh-sungguh.</p>
+   <h3>1. Kompetisi dalam kebaikan</h3>
+   <p><i>Fastabiqul khairat</i> berarti berlomba-lomba dalam melakukan kebaikan. Kompetisi ini dilakukan dengan niat yang baik, cara yang jujur, saling menghormati, dan tidak menjatuhkan orang lain.</p>
+   <div class="arabic">فَاسْتَبِقُوا الْخَيْرَاتِ</div>
+   <p><b>Q.S. Al-Maidah/5:48</b> — “... Maka berlomba-lombalah kamu dalam kebaikan ...”</p>
+   <div class="callout"><b>Pesan ayat:</b> Perbedaan di antara manusia tidak menjadi alasan untuk bermusuhan. Setiap orang didorong melakukan kebaikan dan kelak kembali kepada Allah untuk mempertanggungjawabkan amalnya.</div>
+   <h3>2. Etos kerja dalam Islam</h3>
+   <p>Etos kerja adalah sikap, semangat, dan kebiasaan positif dalam melaksanakan pekerjaan secara sungguh-sungguh, disiplin, jujur, amanah, bertanggung jawab, dan profesional.</p>
+   <div class="arabic">وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ</div>
+   <p><b>Q.S. At-Taubah/9:105</b> — “Dan katakanlah, bekerjalah kamu, maka Allah akan melihat pekerjaanmu, begitu juga Rasul-Nya dan orang-orang mukmin...”</p>
+   <h3>3. Hadis tentang bekerja</h3>
+   <p>Rasulullah saw. menjelaskan bahwa makanan terbaik adalah yang diperoleh dari hasil kerja tangan sendiri (H.R. Bukhari, Kitab al-Buyu’). Hadis ini mengajarkan kemandirian, usaha halal, dan menghargai pekerjaan.</p>
+   <h3>4. Nilai etos kerja</h3>
+   <div class="grid">
+    <div class="tile"><b>⏰ Disiplin</b><p>Menghargai waktu dan menaati aturan.</p></div><div class="tile"><b>🤝 Amanah</b><p>Menjaga kepercayaan dan menyelesaikan tugas.</p></div><div class="tile"><b>✓ Jujur</b><p>Tidak menipu, menyontek, atau mengambil karya orang lain.</p></div><div class="tile"><b>💪 Kerja keras</b><p>Tekun, pantang menyerah, dan terus belajar.</p></div><div class="tile"><b>🧰 Profesional</b><p>Bekerja sesuai keahlian dan prosedur keselamatan.</p></div><div class="tile"><b>🌱 Peduli</b><p>Menghasilkan karya yang bermanfaat bagi sesama.</p></div>
+   </div>
+   <h3>5. Penerapan bagi siswa SMK</h3>
+   <ul><li>Datang tepat waktu dan menyiapkan perlengkapan praktik.</li><li>Menggunakan alat sesuai prosedur keselamatan kerja (K3).</li><li>Menyelesaikan proyek dengan jujur dan tidak melakukan plagiarisme.</li><li>Menghargai hasil karya dan prestasi teman.</li><li>Menjaga ibadah, kebersihan, serta membantu orang lain.</li></ul>
+   <div class="row"><span class="small muted">Baca dan pahami seluruh materi sebelum simulasi.</span><button class="btn primary" onclick="markDone('materi');showScreen('simulasi')">Materi selesai – lanjut simulasi →</button></div>
+  </div>
+ </section>
+
+ <section id="simulasi" class="screen">
+  <div class="panel">
+   <h2>Simulasi: Berpikir Kritis dan Bertindak Baik</h2>
+   <p>Amati setiap situasi. Pilih tindakan atau analisis yang paling tepat. Setelah menjawab, baca umpan baliknya.</p>
+   <div id="stimulusContainer"></div>
+   <div class="row"><button class="btn" id="prevStimulus" onclick="moveStimulus(-1)">← Sebelumnya</button><span id="stimulusCount" class="small muted"></span><button class="btn primary" id="nextStimulus" onclick="moveStimulus(1)">Berikutnya →</button></div>
+   <div class="callout"><b>Tantangan HOTS – Hubungkan dua situasi</b><p>Bandingkan proses pembuatan film animasi dan bergegas salat berjamaah. Apa persamaan nilai yang ditunjukkan? Bagaimana seorang siswa dapat menjaga komitmen menyelesaikan proyek tanpa mengabaikan kewajiban ibadah?</p><textarea id="hotsAnswer" rows="4" placeholder="Tuliskan analisismu di sini..."></textarea><button class="btn primary" style="margin-top:10px" onclick="saveHots()">Simpan refleksi analisis</button><p id="hotsFeedback" class="small"></p></div>
+   <button class="btn primary" onclick="markDone('simulasi');showScreen('kuis')">Selesai simulasi – lanjut kuis →</button>
+  </div>
+ </section>
+
+ <section id="kuis" class="screen">
+  <div class="panel">
+   <h2>Kuis Interaktif – 10 Soal</h2>
+   <p>Setiap jawaban benar bernilai 10 poin. Pilih satu jawaban, lalu tekan “Periksa jawaban”. Skor dihitung langsung di perangkat ini.</p>
+   <div class="row"><b id="quizNumber">Soal 1 dari 10</b><span id="answeredCount" class="small muted">0/10 terjawab</span></div>
+   <div class="progress" style="margin:10px 0 18px"><span id="quizProgress"></span></div>
+   <div id="quizQuestion"></div>
+   <div id="quizOptions" class="options"></div>
+   <div id="quizFeedback" class="feedback hidden" aria-live="polite"></div>
+   <div class="row" style="margin-top:15px"><button class="btn" onclick="quizMove(-1)">← Sebelumnya</button><button class="btn primary" id="checkBtn" onclick="checkAnswer()">Periksa jawaban</button><button class="btn" onclick="quizMove(1)">Berikutnya →</button></div>
+   <div id="quizResult" class="callout hidden"></div>
+   <button class="btn primary hidden" id="retryBtn" onclick="resetQuiz()">Ulangi kuis</button>
+   <button class="btn hidden" id="finishQuizBtn" onclick="markDone('kuis');showScreen('profil')">Selesai →</button>
+  </div>
+ </section>
+
+ <section id="profil" class="screen">
+  <div class="panel">
+   <h2>Profil Media Pembelajaran</h2>
+   <p><b>Nama media:</b> MPI PAI dan Budi Pekerti – Meraih Kesuksesan</p>
+   <p><b>Satuan pendidikan:</b> SMK Negeri 5 Kolaka Utara</p>
+   <p><b>Jenjang/Fase:</b> SMK / Fase E</p>
+   <p><b>Kelas:</b> X</p>
+   <p><b>Materi:</b> Kompetisi dalam Kebaikan (<i>Fastabiqul Khairat</i>) dan Etos Kerja</p>
+   <p><b>Kurikulum:</b> Kurikulum Merdeka</p>
+   <div class="callout"><b>Pesan penutup</b><p>Jadilah generasi yang unggul dalam keterampilan, kuat dalam ibadah, jujur dalam bekerja, dan bermanfaat bagi sesama. Kesuksesan sejati diraih dengan usaha dan akhlak mulia.</p><p><b>Wassalamu’alaikum warahmatullahi wabarakatuh.</b></p></div>
+   <div class="row"><button class="btn" onclick="window.print()">Cetak ringkasan</button><button class="btn primary" onclick="showScreen('home')">Kembali ke beranda</button></div>
+  </div>
+ </section>
+</main>
+<footer>MPI Pendidikan Agama Islam dan Budi Pekerti • SMK Negeri 5 Kolaka Utara<br>Dirancang untuk pembelajaran mandiri dan pendampingan guru • Dapat digunakan offline</footer>
+<script>
+const screens=['home','materi','simulasi','kuis','profil'];
+function showScreen(id){screens.forEach(s=>document.getElementById(s).classList.toggle('active',s===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showScreen(b.dataset.screen)));
+let completed=new Set();
+function markDone(x){completed.add(x);document.getElementById('progressLabel').textContent='Progres: '+completed.size+'/3 bagian';}
+const stimuli=[
+{title:'Proses Pembuatan Film Animasi',icon:'🎬',desc:'Sekelompok siswa SMK bekerja dalam tim membuat film animasi untuk lomba. Mereka membagi peran, menyusun cerita, mendesain karakter, membuat animasi, dan menyelesaikan proyek sesuai tenggat.',q:'Nilai yang paling tepat untuk menggambarkan proses tersebut adalah ...',opts:['Bekerja asal cepat agar menang','Kerja sama, disiplin, kreativitas, dan tanggung jawab','Menyalin karya tim lain agar praktis','Mengutamakan popularitas daripada kualitas'],correct:1,why:'Kerja sama, disiplin, kreativitas, dan tanggung jawab merupakan etos kerja. Menghasilkan karya orisinal dengan cara jujur juga merupakan kompetisi yang sehat. Q.S. At-Taubah/9:105 mengingatkan manusia untuk bekerja dan mempertanggungjawabkan amalnya.'},
+{title:'Penyerahan Piala Juara Lomba Karya Ilmiah',icon:'🏆',desc:'Seorang siswa menerima piala lomba karya ilmiah. Teman-temannya memberi selamat dan termotivasi untuk meningkatkan kemampuan masing-masing.',q:'Sikap yang paling mencerminkan fastabiqul khairat adalah ...',opts:['Iri dan berusaha menjatuhkan juara','Mengakui prestasi, memberi selamat, lalu berusaha lebih baik','Menyebarkan rumor tentang pemenang','Menganggap hanya pemenang yang berharga'],correct:1,why:'Fastabiqul khairat adalah berlomba dalam kebaikan, bukan bermusuhan. Menghargai prestasi dan menjadikannya motivasi menunjukkan kompetisi yang sehat.'},
+{title:'Menjaga Kebersihan Lingkungan',icon:'🧹',desc:'Para siswa melakukan kegiatan bersih sekolah. Beberapa siswa memungut sampah, membersihkan kelas, merapikan taman, dan memilah sampah tanpa menunggu perintah.',q:'Mengapa kegiatan ini termasuk perilaku terpuji?',opts:['Karena dapat menghindari semua pelajaran','Karena menunjukkan kepedulian, inisiatif, dan tanggung jawab','Karena hanya dilakukan agar mendapat pujian','Karena pekerjaan kebersihan tidak memerlukan kerja sama'],correct:1,why:'Menjaga kebersihan adalah bentuk kepedulian terhadap lingkungan. Inisiatif dan tanggung jawab merupakan bagian dari etos kerja dan amal kebaikan.'},
+{title:'Bergegas Salat Berjamaah di Masjid',icon:'🕌',desc:'Saat waktu salat tiba, siswa menghentikan kegiatan yang sedang dilakukan dengan tertib, bersiap, lalu menuju masjid untuk salat berjamaah.',q:'Perilaku tersebut paling sesuai dengan pesan ayat ...',opts:['Q.S. Al-Maidah/5:48 tentang berlomba dalam kebaikan','Ayat yang melarang manusia berusaha','Ayat yang memerintahkan menunda ibadah','Tidak berkaitan dengan nilai kebaikan'],correct:0,why:'Q.S. Al-Maidah/5:48 memerintahkan berlomba-lomba dalam kebaikan. Bersegera melaksanakan ibadah merupakan salah satu penerapannya. Mengatur waktu membantu menjaga ibadah dan tanggung jawab lainnya.'}
+];
+let stimIndex=0,stimAnswers={};
+function renderStimulus(){let s=stimuli[stimIndex],c=document.getElementById('stimulusContainer');c.innerHTML=`<div class="stimulus"><span class="number">STIMULUS ${stimIndex+1} DARI 4</span><h3>${s.icon} ${s.title}</h3><p>${s.desc}</p><div class="question">${s.q}</div><div class="options">${s.opts.map((o,i)=>`<button class="${stimAnswers[stimIndex]===i?'chosen':''}" onclick="selectStim(${i})">${'ABCD'[i]}. ${o}</button>`).join('')}</div><div id="stimFeedback" class="${stimAnswers[stimIndex]===undefined?'hidden':'feedback'}">${stimAnswers[stimIndex]===s.correct?'Tepat! ':'Coba pelajari kembali. '}${stimAnswers[stimIndex]===undefined?'':s.why}</div></div>`;document.getElementById('stimulusCount').textContent=`${stimIndex+1}/4`;document.getElementById('prevStimulus').disabled=stimIndex===0;document.getElementById('nextStimulus').textContent=stimIndex===3?'Kembali ke awal':'Berikutnya →';}
+function selectStim(i){stimAnswers[stimIndex]=i;renderStimulus();}
+function moveStimulus(d){stimIndex=(stimIndex+d+stimuli.length)%stimuli.length;renderStimulus();}
+renderStimulus();
+function saveHots(){let v=document.getElementById('hotsAnswer').value.trim();document.getElementById('hotsFeedback').textContent=v?'Refleksi analisis telah dicatat pada tampilan ini. Bagus, terus kembangkan pemikiran kritismu!':'Tuliskan analisismu terlebih dahulu.';}
+const questions=[
+{q:'Apa arti fastabiqul khairat?',o:['Berlomba mencari kekayaan','Berlomba-lomba dalam kebaikan','Bersaing menjatuhkan orang lain','Menghindari pekerjaan'],a:1,e:'Fastabiqul khairat berarti berlomba-lomba dalam melakukan kebaikan.'},
+{q:'Perintah berlomba-lomba dalam kebaikan terdapat dalam ...',o:['Q.S. Al-Maidah/5:48','Q.S. Al-Ikhlas/112:1','Q.S. Al-Falaq/113:1','Q.S. An-Nas/114:1'],a:0,e:'Perintah tersebut terdapat dalam Q.S. Al-Maidah/5:48.'},
+{q:'Etos kerja adalah ...',o:['Kebiasaan menunda pekerjaan','Sikap menghindari tanggung jawab','Semangat dan sikap positif dalam bekerja','Keinginan mendapat hasil tanpa usaha'],a:2,e:'Etos kerja meliputi semangat, disiplin, kejujuran, dan tanggung jawab dalam bekerja.'},
+{q:'Contoh kompetisi yang sehat adalah ...',o:['Menyontek karya teman','Mengikuti lomba karya ilmiah secara jujur','Menjatuhkan peserta lain','Mengakui karya orang lain sebagai milik sendiri'],a:1,e:'Kompetisi sehat dilakukan dengan jujur dan menghargai orang lain.'},
+{q:'Jika teman memperoleh juara lomba, sikap terbaik adalah ...',o:['Memberi ucapan selamat dan menjadikannya motivasi','Merendahkan prestasinya','Menyebarkan kabar buruk','Menghindarinya'],a:0,e:'Menghargai prestasi teman menunjukkan akhlak terpuji dan persaingan sehat.'},
+{q:'Contoh disiplin saat praktik kejuruan adalah ...',o:['Datang terlambat','Mengabaikan prosedur keselamatan','Meninggalkan tugas tanpa izin','Menggunakan peralatan sesuai prosedur'],a:3,e:'Disiplin dalam praktik berarti mematuhi prosedur dan aturan keselamatan kerja.'},
+{q:'Q.S. At-Taubah/9:105 mengajarkan tentang ...',o:['Larangan belajar','Perintah bermalas-malasan','Perintah untuk bekerja dan beramal','Larangan berusaha'],a:2,e:'Ayat tersebut memerintahkan manusia untuk bekerja dan mengingatkan bahwa amal akan diperlihatkan.'},
+{q:'Contoh tanggung jawab seorang siswa adalah ...',o:['Menyalahkan teman','Menyelesaikan tugas tepat waktu','Mengabaikan tugas kelompok','Tidak mengikuti pembelajaran'],a:1,e:'Menyelesaikan tugas dengan baik dan tepat waktu adalah bentuk tanggung jawab.'},
+{q:'Hadis tentang bekerja dengan tangan sendiri mengajarkan ...',o:['Kemandirian dan mencari rezeki melalui usaha yang baik','Menghindari pekerjaan','Bergantung kepada orang lain','Tidak perlu berusaha'],a:0,e:'Hadis riwayat Bukhari tersebut mengajarkan keutamaan hasil usaha sendiri.'},
+{q:'Bergegas melaksanakan salat berjamaah merupakan contoh ...',o:['Sikap ingin dipuji','Persaingan tidak sehat','Mengabaikan kewajiban','Bersegera dalam melakukan kebaikan'],a:3,e:'Bersegera dalam ibadah merupakan penerapan nilai fastabiqul khairat.'}
+];
+let qIndex=0,qAnswers=Array(10).fill(null),checked=Array(10).fill(false),quizFinished=false;
+function renderQuiz(){let q=questions[qIndex];document.getElementById('quizNumber').textContent=`Soal ${qIndex+1} dari 10`;document.getElementById('answeredCount').textContent=qAnswers.filter(x=>x!==null).length+'/10 terjawab';document.getElementById('quizProgress').style.width=((qIndex+1)*10)+'%';document.getElementById('quizQuestion').innerHTML='<div class="question">'+q.q+'</div>';document.getElementById('quizOptions').innerHTML=q.o.map((o,i)=>`<button ${checked[qIndex]?'disabled':''} class="${qAnswers[qIndex]===i?'chosen':''}" onclick="chooseAnswer(${i})">${'ABCD'[i]}. ${o}</button>`).join('');let f=document.getElementById('quizFeedback');f.classList.toggle('hidden',!checked[qIndex]);if(checked[qIndex])f.textContent=(qAnswers[qIndex]===q.a?'Benar! ':'Belum tepat. ')+q.e;document.getElementById('checkBtn').disabled=checked[qIndex]||qAnswers[qIndex]===null;}
+function chooseAnswer(i){if(checked[qIndex])return;qAnswers[qIndex]=i;renderQuiz();}
+function checkAnswer(){if(qAnswers[qIndex]===null)return;checked[qIndex]=true;renderQuiz();if(checked.every(Boolean))finishQuiz();}
+function quizMove(d){qIndex=Math.max(0,Math.min(9,qIndex+d));renderQuiz();}
+function finishQuiz(){quizFinished=true;let correct=qAnswers.filter((a,i)=>a===questions[i].a).length,score=correct*10;let box=document.getElementById('quizResult');box.classList.remove('hidden');box.innerHTML=`<h3>Hasil Kuis</h3><div style="font-size:34px;font-weight:bold;color:#12613f">${score}/100</div><p>Jawaban benar: ${correct} dari 10 soal.</p><b>${score>=90?'Sangat Baik':score>=80?'Baik':score>=70?'Cukup':'Perlu penguatan'}</b><p>${score>=80?'Pertahankan semangat belajarmu!':'Pelajari kembali materi, kemudian ulangi kuis.'}</p>`;document.getElementById('retryBtn').classList.remove('hidden');document.getElementById('finishQuizBtn').classList.remove('hidden');}
+function resetQuiz(){qIndex=0;qAnswers=Array(10).fill(null);checked=Array(10).fill(false);quizFinished=false;document.getElementById('quizResult').classList.add('hidden');document.getElementById('retryBtn').classList.add('hidden');document.getElementById('finishQuizBtn').classList.add('hidden');renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>
